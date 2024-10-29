@@ -1,0 +1,79 @@
+<%- include('../partials/header.ejs') %> <%- include('../partials/navbar.ejs')
+%>
+<div class="container">
+  <% if(category == 'All') { %>
+  <h2 class="mt-2 mb-2">All Product list</h2>
+  <a href="/products/create" class="btn btn-primary mt-2 mb-2"
+    >Add new Product</a
+  >
+  <% } else { %>
+  <h2 class="mt-2 mb-2">All <%= category %> list</h2>
+  <a href="/products" class="btn btn-primary mt-2 mb-2 btn-sm">Back</a>
+
+  <% } %>
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">No</th>
+        <th scope="col">Image</th>
+        <th scope="col">name</th>
+        <th scope="col">brand</th>
+        <th scope="col">price</th>
+        <th scope="col">color</th>
+        <th scope="col">category</th>
+        <th scope="col">stock</th>
+        <th scope="col">action</th>
+      </tr>
+    </thead>
+    <% let index = 1; %> <% for (product of products) { %>
+    <tbody>
+      <tr>
+        <th scope="row"><%= index++ %></th>
+        <td>
+          <img src="/images/<%= product.image %>" class="object-fit-center border rounded img-thumbnail" style="max-width: 100px; height: auto;" alt="Image">
+        </td>
+        <td><%= product.name %></td>
+        <td><%= product.brand %></td>
+        <td><%= product.price %></td>
+        <td><%= product.color %></td>
+        <td><%= product.category %></td>
+        <td><%= product.stock %></td>
+        <td>
+          <a
+            href="/products/<%= product._id %>"
+            class="btn btn-primary btn-sm mb-2"
+          >
+            <i class="bi bi-info-circle"></i>
+          </a>
+          <a
+            href="/products/<%= product._id %>/edit"
+            class="btn btn-secondary btn-sm mb-2"
+          >
+            <i class="bi bi-pencil"></i>
+          </a>
+          <form
+            action="/products/<%= product._id %>?_method=DELETE"
+            method="post"
+            class="d-inline"
+          >
+            <button
+              class="btn btn-danger btn-sm mb-2"
+              type="submit"
+              id="deleteBtn"
+            >
+              <i
+                class="bi bi-trash"
+                onclick="return confirm('Are you sure delete this product?')"
+              ></i>
+            </button>
+          </form>
+        </td>
+      </tr>
+    </tbody>
+
+    <% } %>
+  </table>
+</div>
+
+<%- include('../partials/footer.ejs') %>

@@ -1,0 +1,124 @@
+<%- include('../partials/header.ejs') %> <%- include('../partials/navbar.ejs')
+%>
+
+<div class="container">
+    <a href="/products" class="btn btn-primary mt-2 mb-2 btn-sm">Back</a>
+  <h1>Create new product</h1>
+  <form action="/products/<%= product._id %>?_method=PUT" method="post" id="productForm" enctype="multipart/form-data">
+    <div class="mb-3 container">
+      <label for="name" class="form-label">Name</label>
+      <input
+        type="text"
+        class="form-control w-50"
+        id="name"
+        name="name"
+        value="<%= product.name %>"
+        placeholder="name of product"
+      />
+    </div>
+
+    <div class="mb-3 container">
+      <label for="brand" class="form-label">Brand</label>
+      <input
+        type="text"
+        class="form-control w-50"
+        id="brand"
+        name="brand"
+        value="<%= product.brand %>"
+        placeholder="brand of product"
+      />
+    </div>
+
+    <div class="mb-3 container">
+      <label for="price" class="form-label">Price</label>
+      <input
+        type="text"
+        class="form-control w-50"
+        id="price"
+        name="price"
+        value="<%= product.price %>"
+        placeholder="price of product"
+      />
+    </div>
+
+    <div class="mb-3 container">
+      <label for="color" class="form-label">Color</label>
+      <input
+        type="text"
+        class="form-control w-50"
+        id="color"
+        name="color"
+        value="<%= product.color %>"
+        placeholder="color of product"
+      />
+    </div>
+
+    <div class="mb-3 container">
+      <label for="Category" class="form-label">Category</label>
+      <select
+        class="form-select w-50"
+        aria-label="Default select example"
+        name="category"
+      >
+        <option value="Baju" <%= product.category == "Baju" ? 'selected' : '' %> >Baju</option>
+        <option value="Celana" <%= product.category == "Celana" ? 'selected' : '' %> >Celana</option>
+        <option value="Topi" <%= product.category == "Topi" ? 'selected' : '' %> >Topi</option>
+        <option value="Aksesoris" <%= product.category == "Aksesoris" ? 'selected' : '' %> >Aksesoris</option>
+        <option value="Jaket" <%= product.category == "Jaket" ? 'selected' : '' %> >Jaket</option>
+      </select>
+    </div>
+
+    <div class="mb-3 container">
+      <label for="description" class="form-label">Description</label>
+      <textarea
+        type="text"
+        class="form-control w-50"
+        id="description"
+        name="description"
+        placeholder="description of product"
+      ><%= product.description %>
+    </textarea>
+    </div>
+
+    <div class="mb-3 container">
+      <label for="condition" class="form-label">Condition</label>
+      <select
+        class="form-select w-50"
+        aria-label="Default select example"
+        name="condition"
+      >
+        <option value="baru" <%= product.condition == "baru" ? 'selected' : '' %>>Kondisi Baru</option>
+        <option value="bekas" <%= product.condition == "bekas" ? 'selected' : '' %>>Kondisi Bekas</option>
+      </select>
+    </div>
+
+    <div class="mb-3 container">
+      <label for="stock" class="form-label">Stock</label>
+      <input
+        type="number"
+        class="form-control w-50"
+        id="stock"
+        name="stock"
+        value="<%= product.stock %>"
+        placeholder="stock of product"
+      />
+    </div>
+
+    <div class="mb-3 container d-flex flex-column">
+      <label for="stock" class="form-label">Image</label>
+      <img src="/images/<%= product.image %>" class="w-25 h-25 object-fit-center mb-2" alt="">
+      <input
+        type="file"
+        class="form-control w-50"
+        id="image"
+        name="image"
+        placeholder="image of product"
+      />
+    </div>
+
+    <button class="btn btn-primary" type="submit">Submit</button>
+  </form>
+</div>
+
+</script>
+<%- include('../partials/footer.ejs') %>

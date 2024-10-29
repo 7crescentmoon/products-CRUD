@@ -1,0 +1,23 @@
+<%- include('../partials/header.ejs') %> <%- include('../partials/navbar.ejs') %>
+<div class="container">
+  <a href="/products" class="btn btn-primary mt-2 mb-2 btn-sm">Back</a>
+  <div class="col-md-4">
+    <div class="card mb-4">
+        <div class="card-body">
+            <div class="d-flex justify-content-center">
+                <img src="/images/<%= product.image %>" class="object-fit-center border rounded w-25 h-25" alt="Image">
+            </div>
+            <h5 class="card-title text-center mt-2"><%= product.name %> - <%= product.brand %></h5>
+            <p class="card-text"><strong>Price:</strong> <%= product.price %></p>
+            <p class="card-text"><strong>Color:</strong> <%= product.color %></p>
+            <p class="card-text"><strong>Category:</strong> 
+               <a href="/products?category=<%= product.category %>"><%= product.category %></a> 
+            </p>
+            <p class="card-text"><strong>Stock:</strong> <%= product.stock %> pcs</p>
+            <div class="">
+                <p class="card-text"><strong>Description : </strong> <%= product.description %></p>
+            </div>
+        </div>
+    </div>
+</div>
+<%- include('../partials/footer.ejs') %>

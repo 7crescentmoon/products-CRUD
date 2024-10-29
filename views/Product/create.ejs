@@ -1,0 +1,119 @@
+<%- include('../partials/header.ejs') %> <%- include('../partials/navbar.ejs')
+%>
+
+<div class="container">
+  <a href="/products" class="btn btn-primary mt-2 mb-2 btn-sm">Back</a>
+  <h1>Create new product</h1>
+  <form action="/products" method="post" id="productForm" enctype="multipart/form-data">
+    <div class="mb-3 container">
+      <label for="name" class="form-label">Name</label>
+      <input
+        type="text"
+        class="form-control w-50"
+        id="name"
+        name="name"
+        placeholder="name of product"
+      />
+    </div>
+
+    <div class="mb-3 container">
+      <label for="brand" class="form-label">Brand</label>
+      <input
+        type="text"
+        class="form-control w-50"
+        id="brand"
+        name="brand"
+        placeholder="brand of product"
+      />
+    </div>
+
+    <div class="mb-3 container">
+      <label for="price" class="form-label">Price</label>
+      <input
+        type="text"
+        class="form-control w-50"
+        id="price"
+        name="price"
+        placeholder="price of product"
+      />
+    </div>
+
+    <div class="mb-3 container">
+      <label for="color" class="form-label">Color</label>
+      <input
+        type="text"
+        class="form-control w-50"
+        id="color"
+        name="color"
+        placeholder="color of product"
+      />
+    </div>
+
+    <div class="mb-3 container">
+      <label for="Category" class="form-label">Category</label>
+      <select
+        class="form-select w-50"
+        aria-label="Default select example"
+        name="category"
+      >
+        <option selected>Open this select menu</option>
+        <option value="Baju">Baju</option>
+        <option value="Celana">Celana</option>
+        <option value="Topi">Topi</option>
+        <option value="Aksesoris">Aksesoris</option>
+        <option value="Jaket">Jaket</option>
+      </select>
+    </div>
+
+    <div class="mb-3 container">
+      <label for="description" class="form-label">Description</label>
+      <textarea
+        type="text"
+        class="form-control w-50"
+        id="description"
+        name="description"
+        placeholder="description of product"
+      ></textarea>
+    </div>
+
+    <div class="mb-3 container">
+      <label for="condition" class="form-label">Condition</label>
+      <select
+        class="form-select w-50"
+        aria-label="Default select example"
+        name="condition"
+      >
+        <option selected>Open this select menu</option>
+        <option value="baru">Kondisi Baru</option>
+        <option value="bekas">Kondisi Bekas</option>
+      </select>
+    </div>
+
+    <div class="mb-3 container">
+      <label for="stock" class="form-label">Stock</label>
+      <input
+        type="number"
+        class="form-control w-50"
+        id="stock"
+        name="stock"
+        placeholder="stock of product"
+      />
+    </div>
+
+    <div class="mb-3 container">
+      <label for="image" class="form-label">image</label>
+      <input
+        type="file"
+        class="form-control w-50"
+        id="image"
+        name="image"
+        placeholder="image of product"
+      />
+    </div>
+
+    <button class="btn btn-success mb-3" type="submit">Submit</button>
+  </form>
+</div>
+
+</script>
+<%- include('../partials/footer.ejs') %>
